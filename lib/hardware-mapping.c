@@ -294,11 +294,11 @@ struct HardwareMapping matrix_hardware_mappings[] = {
     .strobe        = GPIO_BIT(18),
 
     /* Address lines */
-    .a             = GPIO_BIT(26),
-    .b             = GPIO_BIT(19),
+    .a             = GPIO_BIT(5),
+    .b             = GPIO_BIT(6),
     .c             = GPIO_BIT(13),
-    .d             = GPIO_BIT(6),
-    .e             = GPIO_BIT(5),
+    .d             = GPIO_BIT(19),
+    .e             = GPIO_BIT(26),
 
     /* Chain 0 */
     .p0_r1         = GPIO_BIT(2),
