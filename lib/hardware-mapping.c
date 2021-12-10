@@ -283,5 +283,47 @@ struct HardwareMapping matrix_hardware_mappings[] = {
   },
 #endif
 
+  /*
+   * Custom pinout for CoilProtogen's CM4ProtoCarrier
+   */
+  {
+    .name          = "CM4ProtoCarrier",
+
+    .output_enable = GPIO_BIT(12),
+    .clock         = GPIO_BIT(16),
+    .strobe        = GPIO_BIT(18),
+
+    /* Address lines */
+    .a             = GPIO_BIT(26),
+    .b             = GPIO_BIT(19),
+    .c             = GPIO_BIT(13),
+    .d             = GPIO_BIT(6),
+    .e             = GPIO_BIT(5),
+
+    /* Chain 0 */
+    .p0_r1         = GPIO_BIT(2),
+    .p0_g1         = GPIO_BIT(3),
+    .p0_b1         = GPIO_BIT(4),
+    .p0_r2         = GPIO_BIT(17),
+    .p0_g2         = GPIO_BIT(27),
+    .p0_b2         = GPIO_BIT(22),
+
+    /* Chain 1 */
+    .p1_r1         = GPIO_BIT(15), /* masks RXD0/RXD1/SPI5_SCLK/SMI_D7 when parallel=2 */
+    .p1_g1         = GPIO_BIT(14), /* masks TXD0/TXD1/SPI5_MOSI/SMI_D6 when parallel=2 */
+    .p1_b1         = GPIO_BIT(7),
+    .p1_r2         = GPIO_BIT(25),
+    .p1_g2         = GPIO_BIT(24),
+    .p1_b2         = GPIO_BIT(23),
+
+    /* Chain 2 - optional */
+    .p2_r1         = GPIO_BIT(20), /* masks PCM_DIN/SPI6_MOSI/SPI1_MOSI/GPCLK0/SMI_D12 when parallel=3 */
+    .p2_g1         = GPIO_BIT(21), /* masks PCM_DOUT/SPI6_SCLK/SPI1_SCLK/GPCLK1/SMI_D13 when parallel=3 */
+    .p2_b1         = GPIO_BIT(8),  /* masks SDA4/SPI0_CE0/TXD4/SMI_D0 when parallel=3 */
+    .p2_r2         = GPIO_BIT(10), /* masks SDA5/SPI0_MOSI/CTS4/SMI_D2 when parallel=3 */
+    .p2_g2         = GPIO_BIT(9),  /* masks SCL4/SPI0_MISO/RXD4/SMI_D1 when parallel=3 */
+    .p2_b2         = GPIO_BIT(11), /* masks SCL5/SPI0_SCLK/RTS4/SMI_D3 when parallel=3 */
+  },
+
   {0}
 };
